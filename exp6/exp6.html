@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <title>Name and Password Validation</title>
+
+  <script>
+
+    function validateForm() {
+
+      var name = document.getElementById("name").value.trim();
+
+      var password = document.getElementById("password").value;
+
+      var namePattern = /^[A-Za-z ]+$/;
+
+ 
+
+      if (name.length < 6 || !namePattern.test(name)) {
+
+        alert("Name must contain alphabets and be at least 6 characters long.");
+
+        return false;
+
+      }
+
+      if (password.length < 6) {
+
+        alert("Password must be at least 6 characters long.");
+
+        return false;
+
+      }
+
+      alert("Name and password are valid.");
+
+      return true;
+
+    }
+
+  </script>
+
+</head>
+
+<body>
+
+  <h2>Registration Form</h2>
+
+  <form onsubmit="return validateForm()">
+
+    Name: <input type="text" id="name" required><br><br>
+
+    Password: <input type="password" id="password" required><br><br>
+
+    <input type="submit" value="Submit">
+
+    <input type="reset" value="Reset">
+
+  </form>
+
+</body>
+
+</html>

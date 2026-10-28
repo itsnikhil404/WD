@@ -1,0 +1,34 @@
+exp7.html:
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Email and Phone Validation</title>
+  <script>
+    function validateForm() {
+      var email = document.getElementById("email").value.trim();
+      var phone = document.getElementById("phone").value.trim();
+      var emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+      var phonePattern = /^[0-9]{10}$/;
+      if (!emailPattern.test(email)) {
+        alert("Enter a valid email address, for example name@domain.com.");
+        return false;
+      }
+      if (!phonePattern.test(phone)) {
+        alert("Phone number must contain exactly 10 digits.");
+        return false;
+      }
+      alert("Email and phone number are valid.");
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h2>Contact Details</h2>
+  <form onsubmit="return validateForm()">
+    Email ID: <input type="text" id="email" required><br><br>
+    Phone Number: <input type="text" id="phone" maxlength="10" required><br><br>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+  </form>
+</body>
+</html>
